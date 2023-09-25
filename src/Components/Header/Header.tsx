@@ -14,7 +14,7 @@ const HeaderBox = styled.header`
 const Header = () => {
     return(
         <HeaderBox>
-            <p className='pr-5'>Stackowerflow Helper</p>
+            <p className='pr-5'>Stackoverflow Helper</p>
             <SearchPanel />
         </HeaderBox>
     );
