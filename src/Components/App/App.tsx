@@ -11,7 +11,7 @@ const App = () => {
   useEffect(()=>{
     getDataFX()
   })
-  
+
   return (
     <>
     <Header />

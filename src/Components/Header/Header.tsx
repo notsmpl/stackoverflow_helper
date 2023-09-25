@@ -1,5 +1,6 @@
 import {styled} from 'styled-components'
 import SearchPanel from '../SearchPanel';
+import { getDataFX } from '../../store/contentStore/dataStore';
 
 const HeaderBox = styled.header`
    display:block;
@@ -10,11 +11,23 @@ const HeaderBox = styled.header`
    justify-content: center;
    align-items: center;
 `
+const Logo = styled.p`
+    padding-right: 15px;
+    transition: 250ms;
+    cursor:pointer;
 
+    &:hover{
+        font-size: 18px;
+    }
+`
 const Header = () => {
+
+    const onUpdate = (e: React.MouseEvent<HTMLElement>) => {
+        getDataFX()
+    }
     return(
         <HeaderBox>
-            <p className='pr-5'>Stackoverflow Helper</p>
+            <Logo onClick={onUpdate}>Stackoverflow Helper</Logo>
             <SearchPanel />
         </HeaderBox>
     );

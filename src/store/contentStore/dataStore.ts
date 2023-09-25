@@ -23,11 +23,30 @@ export const getSearchFX = createEffect(async (inputValue:string) => {
         return res.data.items
    });
 
+export const authorSearchFX = createEffect(async (id:number) => {
+    const res = await http.get(`/users/${id}/questions`, {
+        params:{
+            site: 'stackoverflow'
+        }})
+        return res.data.items
+   });
+
+export const tagSearchFX = createEffect(async (tag:string|null) => {
+    const res = await http.get(`/tags/${tag}/faq`, {
+        params:{
+            site: 'stackoverflow'
+        }})
+        return res.data.items
+   });
+
 export const $dataStore = createStore([])
     .on(getDataFX.doneData,(_,data) => data)
-    .on(getSearchFX.doneData,(_,result) => result);
+    .on(getSearchFX.doneData,(_,result) => result)
+    .on(authorSearchFX.doneData,(_,authorData) => authorData)
+    .on(tagSearchFX.doneData,(_,tagData) => tagData);
+    
 
 
 
 
-
+$dataStore.watch((data)=>console.log(data))

@@ -6,6 +6,7 @@ import { getSearchFX } from '../../store/contentStore/dataStore';
 
 const Input = styled.input`
    width:500px;
+   padding-left: 10px;
    border: solid 1px grey;
    border-radius: 10px;
    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
